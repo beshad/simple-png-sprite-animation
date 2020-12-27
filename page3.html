@@ -43,7 +43,7 @@
 
   </style>
   <style>
-    img {
+    #image img {
       animation-duration: 5s;
       animation-iteration-count: infinite;
       animation-direction: alternate;
@@ -69,6 +69,7 @@
   <section>
     <div id="bot"></div>
     <div id="image"></div>
+    <div id="arrow"></div>
   </section>
   <script>
     window.onload = () => {
@@ -77,10 +78,38 @@
       image.width = '100'
       image.setAttribute('alt', 'image')
       image.src = 'https://picsum.photos/id/109/640/480'
-      document.body.appendChild(image)
-      document.querySelector('img').style.animationName = 'image'
+      document.querySelector('#image').appendChild(image)
+      image.style.animationName = 'image'
+
+
+      let img = new Image()
+      img.src = 'arrow.jpg'
+      img.width = 100
+      img.style.animationName = 'arrow'
+      document.querySelector('#arrow').appendChild(img)
     }
 
   </script>
+
+  <style>
+    #arrow img {
+      animation-iteration-count: infinite;
+      animation-duration: 2s;
+      animation-direction: normal;
+      animation-timing-function: steps(5);
+    }
+
+    @keyframes arrow {
+      from {
+        transform: translate(0, 0) rotate(0);
+      }
+
+      to {
+        transform: translate(600px, 400px) rotate(90deg);
+      }
+    }
+
+  </style>
+
 </body>
 </html>
