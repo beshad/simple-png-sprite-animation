@@ -35,8 +35,30 @@
       from {
         background-position: 1480px;
       }
+
       to {
         background-position: 0;
+      }
+    }
+
+  </style>
+  <style>
+    img {
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: linear;
+    }
+
+    @keyframes image {
+      from {
+        margin-left: 0;
+        transform: rotate(0deg)
+      }
+
+      to {
+        margin-left: 600px;
+        transform: rotate(360deg)
       }
     }
 
@@ -48,5 +70,17 @@
     <div id="bot"></div>
     <div id="image"></div>
   </section>
+  <script>
+    window.onload = () => {
+      let image = new Image()
+      // let image = document.createElement("img")
+      image.width = '100'
+      image.setAttribute('alt', 'image')
+      image.src = 'https://picsum.photos/id/109/640/480'
+      document.body.appendChild(image)
+      document.querySelector('img').style.animationName = 'image'
+    }
+
+  </script>
 </body>
 </html>
